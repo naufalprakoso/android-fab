@@ -282,17 +282,17 @@ class DemoActivity: AppCompatActivity() {
 
 	private fun updateButtonPosition() {
 		button_position.text = buttonPositionOptions[buttonPosition].first
-		fab.setButtonPosition(buttonPositionOptions[buttonPosition].second)
+		fab.setPosition(buttonPositionOptions[buttonPosition].second)
 	}
 
 	private fun updateButtonBackgroundColour() {
 		button_background_colour.text = buttonBgColourOptions[buttonBackgroundColour].first
-		fab.setButtonBackgroundColour(buttonBgColourOptions[buttonBackgroundColour].second)
+		fab.setBackgroundColour(buttonBgColourOptions[buttonBackgroundColour].second)
 	}
 
 	private fun updateButtonIcon() {
 		button_icon.text = buttonIconOptions[buttonIcon].first
-		fab.setButtonIconResource(buttonIconOptions[buttonIcon].second)
+		fab.setIconResource(buttonIconOptions[buttonIcon].second)
 	}
 
 	private fun updateSpeedDialSize() {

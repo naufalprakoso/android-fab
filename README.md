@@ -59,13 +59,13 @@ The `FloatingActionButton` view must be placed at the **root** of your layout, *
 
 ### FAB Position
 
-The FAB can be positioned in any of the four corners of the activity via XML or with `fab.setButtonPosition(...)`. The default position is the bottom-end corner.
+The FAB can be positioned in any of the four corners of the activity via XML or with `fab.setPosition(...)`. The default position is the bottom-end corner.
 
 	// Java
-	fab.setButtonPosition(POSITION_BOTTOM | POSITION_END);
+	fab.setPosition(POSITION_BOTTOM | POSITION_END);
 
 	// Kotlin
-	fab.setButtonPosition(POSITION_BOTTOM.or(POSITION_END))
+	fab.setPosition(POSITION_BOTTOM.or(POSITION_END))
 
 	// XML
 	<uk.co.markormesher.android_fab.FloatingActionButton
@@ -96,13 +96,13 @@ The FAB can be offset from any of the four edges to precisely control its locati
 
 ### FAB Icon
 
-The icon displayed in the centre of the FAB can be set via XML using a `Drawable` reference or with `fab.setButtonIconResource(...)` using a `Drawable` resource ID. The icon will be centred in a 24dp x 24dp view group, as per the Android Material Design specs.
+The icon displayed in the centre of the FAB can be set via XML using a `Drawable` reference or with `fab.setIconResource(...)` using a `Drawable` resource ID. The icon will be centred in a 24dp x 24dp view group, as per the Android Material Design specs.
 
 	// Java
-	fab.setButtonIconResource(R.drawable.ic_add);
+	fab.setIconResource(R.drawable.ic_add);
 
 	// Kotlin
-	fab.setButtonIconResource(R.drawable.ic_add)
+	fab.setIconResource(R.drawable.ic_add)
 
 	// XML
 	<uk.co.markormesher.android_fab.FloatingActionButton
@@ -113,13 +113,13 @@ The icon displayed in the centre of the FAB can be set via XML using a `Drawable
 
 ### FAB Background Colour
 
-The background colour of the FAB can be set via XML using a colour reference or programmatically with `fab.setButtonBackgroundColour(...)` using an aRGB colour value (e.g. `0xffff9900` for dark orange). Note that the second method does **not** take a colour resource ID, so passing in `R.color.some_colour_name` will not work.
+The background colour of the FAB can be set via XML using a colour reference or programmatically with `fab.setBackgroundColour(...)` using an aRGB colour value (e.g. `0xffff9900` for dark orange). Note that the second method does **not** take a colour resource ID, so passing in `R.color.some_colour_name` will not work.
 
 	// Java
-	fab.setButtonBackgroundColour(0xffff9900);
+	fab.setBackgroundColour(0xffff9900);
 
 	// Kotlin
-	fab.setButtonBackgroundColour(0xffff9900.toInt())
+	fab.setBackgroundColour(0xffff9900.toInt())
 
 	// XML
 	<uk.co.markormesher.android_fab.FloatingActionButton

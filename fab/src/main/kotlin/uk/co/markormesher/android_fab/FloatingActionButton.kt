@@ -29,7 +29,6 @@ import kotlinx.android.synthetic.main.menu_item_icon.view.*
 import uk.co.markormesher.android_fab.extensions.clearParentAlignmentRules
 import uk.co.markormesher.android_fab.fab.R
 
-
 @Suppress("MemberVisibilityCanBePrivate", "unused") // because we want to expose the methods to end users
 class FloatingActionButton: RelativeLayout {
 
@@ -128,13 +127,13 @@ class FloatingActionButton: RelativeLayout {
 			}
 
 			buttonPosition = state.getInt("buttonPosition", buttonPosition)
-			setButtonPosition(buttonPosition)
+			setPosition(buttonPosition)
 
 			buttonBackgroundColour = state.getInt("buttonBackgroundColour", buttonBackgroundColour)
-			setButtonBackgroundColour(buttonBackgroundColour)
+			setBackgroundColour(buttonBackgroundColour)
 
 			buttonIconResource = state.getInt("buttonIconResource", buttonIconResource)
-			setButtonIconResource(buttonIconResource)
+			setIconResource(buttonIconResource)
 
 			contentCoverColour = state.getInt("contentCoverColour", contentCoverColour)
 			setContentCoverColour(contentCoverColour)
@@ -190,9 +189,9 @@ class FloatingActionButton: RelativeLayout {
 	private fun applyAttributes(rawAttrs: AttributeSet?) {
 		val attrs = context.theme.obtainStyledAttributes(rawAttrs, R.styleable.FloatingActionButton, 0, 0)
 		try {
-			setButtonPosition(attrs.getInteger(R.styleable.FloatingActionButton_buttonPosition, buttonPosition))
-			setButtonBackgroundColour(attrs.getColor(R.styleable.FloatingActionButton_buttonBackgroundColour, buttonBackgroundColour))
-			setButtonIconResource(attrs.getResourceId(R.styleable.FloatingActionButton_buttonIcon, 0))
+			setPosition(attrs.getInteger(R.styleable.FloatingActionButton_buttonPosition, buttonPosition))
+			setBackgroundColour(attrs.getColor(R.styleable.FloatingActionButton_buttonBackgroundColour, buttonBackgroundColour))
+			setIconResource(attrs.getResourceId(R.styleable.FloatingActionButton_buttonIcon, 0))
 			setInternalOffsetTop(attrs.getDimension(R.styleable.FloatingActionButton_internalOffsetTop, 0f))
 			setInternalOffsetBottom(attrs.getDimension(R.styleable.FloatingActionButton_internalOffsetBottom, 0f))
 			setInternalOffsetStart(attrs.getDimension(R.styleable.FloatingActionButton_internalOffsetStart, 0f))
@@ -215,34 +214,34 @@ class FloatingActionButton: RelativeLayout {
 	}
 
 	private fun setViewLayoutParams(view: View) {
-		val layoutParams = view.layoutParams as RelativeLayout.LayoutParams
+		val layoutParams = view.layoutParams as LayoutParams
 		layoutParams.clearParentAlignmentRules()
 
 		if (buttonPosition.and(POSITION_TOP) > 0) {
-			layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP)
+			layoutParams.addRule(ALIGN_PARENT_TOP)
 		}
 		if (buttonPosition.and(POSITION_BOTTOM) > 0) {
-			layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM)
+			layoutParams.addRule(ALIGN_PARENT_BOTTOM)
 		}
 		if (buttonPosition.and(POSITION_START) > 0) {
 			if (Build.VERSION.SDK_INT >= 17) {
-				layoutParams.addRule(RelativeLayout.ALIGN_PARENT_START)
+				layoutParams.addRule(ALIGN_PARENT_START)
 			} else {
-				layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
+				layoutParams.addRule(ALIGN_PARENT_LEFT)
 			}
 		}
 		if (buttonPosition.and(POSITION_END) > 0) {
 			if (Build.VERSION.SDK_INT >= 17) {
-				layoutParams.addRule(RelativeLayout.ALIGN_PARENT_END)
+				layoutParams.addRule(ALIGN_PARENT_END)
 			} else {
-				layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
+				layoutParams.addRule(ALIGN_PARENT_RIGHT)
 			}
 		}
 		if (buttonPosition.and(POSITION_LEFT) > 0) {
-			layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT)
+			layoutParams.addRule(ALIGN_PARENT_LEFT)
 		}
 		if (buttonPosition.and(POSITION_RIGHT) > 0) {
-			layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT)
+			layoutParams.addRule(ALIGN_PARENT_RIGHT)
 		}
 
 		view.layoutParams = layoutParams
@@ -277,7 +276,7 @@ class FloatingActionButton: RelativeLayout {
 		}
 	}
 
-	fun setButtonPosition(position: Int) {
+	fun setPosition(position: Int) {
 		buttonPosition = position
 
 		setViewLayoutParams(fab_card)
@@ -286,7 +285,7 @@ class FloatingActionButton: RelativeLayout {
 		speedDialMenuViews.forEach { setSpeedDialMenuItemViewOrder(it) }
 	}
 
-	fun setButtonBackgroundColour(@ColorInt colour: Int) {
+	fun setBackgroundColour(@ColorInt colour: Int) {
 		buttonBackgroundColour = colour
 		if (Build.VERSION.SDK_INT >= 21) {
 			(fab_card as CardView).setCardBackgroundColor(colour)
@@ -295,7 +294,7 @@ class FloatingActionButton: RelativeLayout {
 		}
 	}
 
-	fun setButtonIconResource(@DrawableRes icon: Int) {
+	fun setIconResource(@DrawableRes icon: Int) {
 		buttonIconResource = icon
 		fab_icon_wrapper.setBackgroundResource(icon)
 	}
